@@ -30,11 +30,11 @@ mqtt_client.on_connect = _on_connect
 mqtt_client.on_message = _on_message
 
 class FeedRequest(BaseModel):
-    grams: Annotated[int, Field(gt=0, le=500)]
+    qty: Annotated[int, Field(gt=0, le=5)]
 
 @app.post("/feed")
 def feed(req: FeedRequest):
-    result = mqtt_client.publish(SETTINGS.topic_command, f"FEED {req.grams}", qos=SETTINGS.qos)
+    result = mqtt_client.publish(SETTINGS.topic_command, f"FEED {req.qty}", qos=SETTINGS.qos)
     if result.rc != 0:
         raise HTTPException(status_code=502, detail="Failed to publish to MQTT")
     return {"status": "ok", "queued": True}

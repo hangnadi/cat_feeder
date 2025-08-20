@@ -13,9 +13,9 @@ def _ensure_csv_exists(path: str):
             writer = csv.writer(f)
             writer.writerow(_CSV_HEADERS)
 
-def append_log(action: str, grams: int | None, result: str):
+def append_log(action: str, quantity: int | None, result: str):
     path = SETTINGS.log_csv_path
     _ensure_csv_exists(path)
     with open(path, "a", newline="", encoding="utf-8") as f:
         writer = csv.writer(f)
-        writer.writerow([datetime.now().isoformat(timespec="seconds"), action, grams or 0, result])
+        writer.writerow([datetime.now().isoformat(timespec="seconds"), action, quantity or 0, result])

@@ -86,7 +86,7 @@ uvicorn api.server:app --reload --port 8000
 ### Try it
 With the device subscriber running:
 ```bash
-curl -X POST "http://127.0.0.1:8000/feed"   -H "Content-Type: application/json"   -d '{"grams":50}'
+curl -X POST "http://127.0.0.1:8000/feed"   -H "Content-Type: application/json"   -d '{"qty":5}'
 
 curl "http://127.0.0.1:8000/status"
 ```
@@ -121,7 +121,7 @@ Notes:
 
 ## 5) Roadmap Ideas
 
-- Switch to JSON payloads (e.g., `{ "cmd": "feed", "grams": 50 }`).
+- Switch to JSON payloads (e.g., `{ "cmd": "feed", "qty": 5 }`).
 - Add SQLite storage and `/events` endpoint (pagination) to the API.
 - MQTT over **WebSockets** if your network requires it.
 - AuthN/Z for the API; per-device ACLs on the broker.
