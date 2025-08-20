@@ -1,3 +1,18 @@
+# IoT Cat Feeder Simulator (MQTT)
+
+A minimal end-to-end simulation of an IoT cat feeder using MQTT **pub/sub** in Python.
+
+## Overview
+
+```
+[App (Publisher)] → MQTT Broker → [Device (Subscriber)]
+```
+
+- The **app** sends commands like `FEED 50` or `STATUS?` to a command topic.
+- The **device** listens, executes logic, appends logs to `data/logs.csv`, and publishes results to an event topic.
+
+## Quick Start
+
 ## 1) Repository Structure
 
 ```
