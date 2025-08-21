@@ -5,7 +5,7 @@ A minimal end-to-end simulation of an IoT cat feeder using MQTT **pub/sub** in P
 ## Overview
 
 ```
-[App (Publisher)] → MQTT Broker → [Device (Subscriber)]
+App ⇄ Backend (HTTP/REST) ⇄ MQTT Broker ⇄ Device
 ```
 
 - The **app** sends commands like `FEED 50` or `STATUS?` to a command topic.
